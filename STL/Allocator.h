@@ -10,6 +10,69 @@
 #include <climits>
 #include <iostream>
 
+
+template<int inst>
+class MallocAllocTemplate {
+private:
+    static void *SOOMMalloc(size_t n) {
+        void *result;
+        void (* TempHandler)();
+        for (;;) {
+            TempHandler=MallocAllocOOMHandler;
+            if (0 == TempHandler) {
+                std::cerr << "NO ENOHGH MEMORY" << "\n";
+                exit(1);
+            }
+            (* TempHandler)();//????
+            result = malloc(n);
+            if (result)
+                return result;
+        }
+    }
+
+    static void *SOOMRealloc(void *p,size_t n) {
+        void *result;
+        void (* TempHandler)();
+        for (;;) {
+            TempHandler=MallocAllocOOMHandler;
+            if (0 == TempHandler) {
+                std::cerr << "NO ENOHGH MEMORY" << "\n";
+                exit(1);
+            }
+            (* TempHandler)();//????
+            result = malloc(n);
+            if (result)
+                return result;
+        }
+    }
+
+    static void (*MallocAllocOOMHandler)();
+
+public:
+    static void * allocate(size_t n){
+        void * result=malloc(n);
+        if(0==result)
+            result=SOOMMalloc(n);
+        return result;
+    }
+    static void deallocate(void *p ,size_t){
+        free(p);
+    }
+    static void* reallocate(void* p, size_t , size_t n)
+    {
+        void* result = realloc(p, n);
+        if (0 == result) result = SOOMRealloc(p, n);
+        return result;
+    }
+    static void (* SetMallocHandler(void (*__f)()))()
+    {
+        void (* old)() = MallocAllocOOMHandler;
+        MallocAllocOOMHandler = __f;
+        return(old);
+    }
+};
+
+
 namespace Allocator {
     template<class T>
     inline T *_allocate(ptrdiff_t size, T *) {
@@ -39,6 +102,38 @@ namespace Allocator {
 
     template<class T>
     class allocator {
+    private:
+        enum {
+            ALIGN = 8
+        };//128字节为分界线
+        enum {
+            MAX_BYTES = 128
+        };//以8个字节为单位分配
+        enum {
+            _NFREELISTS = 16
+        };//位数16组链表
+        static size_t RoundUp(size_t bytes) {
+            return ((bytes + ALIGN) / ALIGN) * ALIGN;
+        }
+
+        union Obj {
+            union Obj *MemFreeListLink;
+            char MemClientData[1];
+        };
+
+        static size_t SFreeListIndex(size_t bytes) {
+            return (((bytes) + ALIGN - 1) / ALIGN - 1);
+        }
+
+        //后续可能要使用的函数
+        static void *SRefill(size_t n) {}
+
+        static char *S_chunk_alloc(size_t size, int &nobjs);
+
+        // Chunk allocation state.
+        static char *S_StartFree;
+        static char *SEndFree;
+        static size_t SHeapSize;
     public:
         typedef T ValueType;
         typedef T *Pointer;
@@ -52,26 +147,33 @@ namespace Allocator {
         struct Rebind {
             typedef allocator<U> others;
         };
-        Pointer allocate(SizeType n, const void * hint=0){
-            return _allocate((DifferenceType) n,(Pointer)0); //格式必须一摸一样
+
+        Pointer allocate(SizeType n, const void *hint = 0) {
+            return _allocate((DifferenceType) n, (Pointer) 0); //格式必须一摸一样
         }
-        void deallocate(Pointer pointer,SizeType sizeType){
+
+        void deallocate(Pointer pointer, SizeType sizeType) {
             _dealloc(pointer);
         }
-        void construct(Pointer pointer,ConstReference constReference){
-            _construct(pointer,constReference);
+
+        void construct(Pointer pointer, ConstReference constReference) {
+            _construct(pointer, constReference);
         }
-        void destroy(Pointer pointer){
+
+        void destroy(Pointer pointer) {
             _deconstruct(pointer);
         }
-        Pointer address(Reference reference){
-            return (Pointer)(&reference);
+
+        Pointer address(Reference reference) {
+            return (Pointer) (&reference);
         }
-        ConstPointer const_reference(ConstReference constReference){
-            return (ConstPointer)&constReference;
+
+        ConstPointer const_reference(ConstReference constReference) {
+            return (ConstPointer) &constReference;
         }
-        SizeType max_size()const {
-            return (SizeType)(UINT_MAX/ sizeof(T));
+
+        SizeType max_size() const {
+            return (SizeType) (UINT_MAX / sizeof(T));
         }
     };
 }
