@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/leosher/Documents/GitHub/c++/cppStudy/STL/Allocator.h
+new
+-
+cstddef
+-
+climits
+-
+iostream
+-
+
+/Users/leosher/Documents/GitHub/c++/cppStudy/STL/main.cpp
+iostream
+-
+Allocator.h
+/Users/leosher/Documents/GitHub/c++/cppStudy/STL/Allocator.h
+

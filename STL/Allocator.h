@@ -43,7 +43,7 @@ public:
 typedef MallocAllocTemplate<0> MallocAlloc;
 
 template<int inst>
-class DefaultAlloc {
+class DefaultAllocTemplate {
 private:
     enum {
         ALIGN = 8
@@ -52,13 +52,14 @@ private:
         MAX_BYTES = 128
     };//以8个字节为单位分配
     enum {
-        _NFREELISTS = 16
+        NFREELISTS = 16
     };//位数16组链表
     static size_t RoundUp(size_t bytes) {
         return ((bytes + ALIGN) / ALIGN) * ALIGN;
     }
 
-    union Obj {
+    union Obj {//嵌入式指针,每一个元素（内存区域对象）即可以当作下一个元素的指针
+        //每个节点的值是使用前者构成的单向链表的首地址
         union Obj *MemFreeListLink;
         char MemClientData[1];
     };
@@ -69,7 +70,7 @@ private:
         return (((bytes) + ALIGN - 1) / ALIGN - 1);
     }
 
-    //这个n一定是8的整数倍数
+    //这个size一定是8的整数倍数
     static void *SRefill(size_t size) {
         int num = 20;   //一次想要20块
         char *chunk = SChunkAlloc(size, num);//num传的是引用,返回真正分配了的内存块数量
@@ -81,10 +82,10 @@ private:
             return chunk;
         else {// 切成一个个的大小为size的小块加入freelist
             result = (Obj *) chunk;
-            MyfreeList = SFreeList + SFreeListIndex(size);//找到了对应的链表
-            NextObj = (Obj *) (chunk + size);//因为大小是size
-            *MyfreeList = NextObj;
-            for (int i = 1;; i++) {
+            MyfreeList = SFreeList + SFreeListIndex(size);//找到了数组对应大小的链表
+            NextObj = (Obj *) (chunk);//将申请下来的内存进行分块？？？为什么第一块就要加一个size而不是指向开头
+            *MyfreeList = NextObj;//链表指向空闲的内存
+            for (int i = 1;; i++) {//分割申请下来的chunk
                 CurrentObj = NextObj;
                 NextObj = (Obj *) ((char *) NextObj + size);
                 if (num - 1 == i) {
@@ -99,21 +100,40 @@ private:
 
     }
 
+    //返回指向一块内存空间的指针（字节为单位）
     static char *SChunkAlloc(size_t size, int &n) {
+
         char *result;
-        size_t TotalBytes = size * n;
-        size_t BytesLeft = SEndFree - SStartFree;
+        size_t TotalBytes = size * n;//总共需要这么多的内存
+        size_t BytesLeft = SEndFree - SStartFree;//目前内存池有这么多的内存
         if (BytesLeft >= TotalBytes) {//可以分配这么多的内存
+            result = SStartFree;//下面将减去已经分配好了的，从start开始到start+ToTalBytes都是分配出去的
+            SStartFree += TotalBytes;
+            return result;
+
+        } else if (BytesLeft >= size) {//能分配几个分配几个
+
+            n = (int) (BytesLeft / size);//只能分配n个
+            TotalBytes = size * n;
             result = SStartFree;
             SStartFree += TotalBytes;
             return result;
-        } else {
-            size_t BytesToGet = TotalBytes * 2 + RoundUp(SHeapSize * 16);
-            if (BytesLeft > 0) {
-                Obj** MyfreeList=SFreeList + SFreeListIndex(BytesLeft);//找到了对应的链表
-                
 
+        } else {//一个都分配不了了
+            //调整free list，将内存中的残余内存空间编入
+            size_t BytesToGet = TotalBytes * 2 + RoundUp(SHeapSize / 16);
+            if (BytesLeft > 0) {//把还剩的一点找出来 很节约的程序员
+                Obj **MyfreeList = SFreeList + SFreeListIndex(BytesLeft);//找到了还剩的内存块对应的链表
+                ((Obj *) (SStartFree))->MemFreeListLink = *MyfreeList;
+                *MyfreeList = (Obj *) SStartFree;
             }
+            //配置heap空间，用来填充内存池
+            SStartFree = (char *) malloc(BytesToGet);
+            if (SStartFree == 0)
+                std::cerr << "NO ENOUGH MEMORY" << "\n";
+            SHeapSize += BytesToGet;
+            SEndFree = SStartFree + BytesToGet;
+            return (SChunkAlloc(size, n));//循环调用自己,修正n
         }
     }
 
@@ -129,88 +149,103 @@ public:
         } else {
             Obj **MyFreeList = SFreeList + SFreeListIndex(n);//确定空闲链表
             Obj *result = *MyFreeList;
-            if (result == 0)//没有空闲的了,尝试再要点内存
-                result = SRefill(RoundUp(n));
-            else
-                result = result->MemFreeListLink;
+            if (result == 0){//没有空闲的了,尝试再要点内存
+                void *r = SRefill(RoundUp(n));
+                return r;
+            }
+            result = result->MemFreeListLink;
+            *MyFreeList=result;
             return result;
         }
     }
 
+    static void DeAllocate(void *p, size_t n) {
+        Obj **MyFreeListLink;
+        Obj *q = (Obj *) p;
+        if (n > (size_t) MAX_BYTES) {
+            MallocAlloc::deallocate(p, n);
+            return;
+        }
+        MyFreeListLink = SFreeList + SFreeListIndex(n);
+        q->MemFreeListLink = *MyFreeListLink;
+        *MyFreeListLink = q;
+    }
+
+    void *Reallocate(void *p, size_t OldSize, size_t NewSize) {
+        void *result;
+        size_t CopySize;
+
+        if (OldSize > (size_t) MAX_BYTES && NewSize > (size_t) MAX_BYTES) {
+            return (realloc(p, NewSize));
+        }
+        if (RoundUp(OldSize) == RoundUp(NewSize)) return (p);
+        result = Allocate(NewSize);
+        CopySize = NewSize > OldSize ? OldSize : NewSize;
+        memcpy(result, p, CopySize);
+        DeAllocate(p, OldSize);
+        return (result);
+    }
+
+};
+
+typedef DefaultAllocTemplate<0> Alloc;
+template<int inst>
+char *DefaultAllocTemplate<inst>::SStartFree = 0;
+
+template<int inst>
+char *DefaultAllocTemplate<inst>::SEndFree = 0;
+
+template<int inst>
+size_t DefaultAllocTemplate<inst>::SHeapSize = 0;
+
+template<int inst>
+typename DefaultAllocTemplate<inst>::Obj *DefaultAllocTemplate<inst>::SFreeList[DefaultAllocTemplate<inst>::NFREELISTS] = {
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+};
+
+template<class T>
+class Allocator {
+public:
+    typedef T ValueType;
+    typedef T *Pointer;
+    typedef const T *ConstPointer;
+    typedef T &Reference;
+    typedef const T &ConstReference;
+    typedef size_t SizeType;
+    typedef ptrdiff_t DifferenceType;
+    template<class U>
+    struct Rebind {
+        typedef Allocator<U> others;
+    };
+
+    Pointer address(Reference reference) {
+        return (Pointer) (&reference);
+    }
+
+    ConstPointer const_reference(ConstReference constReference) {
+        return (ConstPointer) &constReference;
+    }
+
+    Pointer allocate(SizeType n, const void *hint = 0) {
+        return n != 0 ? static_cast<T *>(Alloc::Allocate(n * sizeof(T))) : 0; //格式必须一摸一样
+    }
+
+    void deallocate(Pointer pointer, SizeType n) {
+        Alloc::DeAllocate(pointer, n);
+    }
+
+    SizeType max_size() const {
+        return (SizeType) (UINT_MAX / sizeof(T));
+    }
+
+    void construct(Pointer pointer, ConstReference constReference) {
+        new(pointer) T(constReference);
+    }
+
+    void destroy(Pointer pointer) {
+        pointer->~T();
+    }
 };
 
 
-namespace Allocator {
-    template<class T>
-    inline T *_allocate(ptrdiff_t size, T *) {
-        std::set_new_handler(0);//内存分配失败之后由我们而不是系统进行处理
-        T *tmp = (T *) (::operator new((size_t) (sizeof(T) * size)));
-        if (tmp == 0) {
-            std::cerr << "NO ENOUGH MEMORY" << "\n";
-        }//分配失败
-        return tmp;
-    }
-
-    template<class T>
-    inline void _dealloc(T *mem) {
-        ::operator delete(mem);
-    }
-
-    template<class T1, class T2>
-    inline void _construct(T1 *p, const T2 &ptr) {
-        new(p) T1(ptr);//placement new，本质上是对::operator new的重载，不分配内存。
-        // 调用合适的构造函数在ptr所指的地方构造一个T2对象，之后返回实参指针ptr
-    }
-
-    template<class T>
-    inline void _deconstruct(T *p) {
-        p->~T();
-    }
-
-    template<class T>
-    class allocator {
-
-    public:
-        typedef T ValueType;
-        typedef T *Pointer;
-        typedef const T *ConstPointer;
-        typedef T &Reference;
-        typedef const T &ConstReference;
-        typedef size_t SizeType;
-        typedef ptrdiff_t DifferenceType;
-
-        template<class U>
-        struct Rebind {
-            typedef allocator<U> others;
-        };
-
-        Pointer allocate(SizeType n, const void *hint = 0) {
-            return _allocate((DifferenceType) n, (Pointer) 0); //格式必须一摸一样
-        }
-
-        void deallocate(Pointer pointer, SizeType sizeType) {
-            _dealloc(pointer);
-        }
-
-        void construct(Pointer pointer, ConstReference constReference) {
-            _construct(pointer, constReference);
-        }
-
-        void destroy(Pointer pointer) {
-            _deconstruct(pointer);
-        }
-
-        Pointer address(Reference reference) {
-            return (Pointer) (&reference);
-        }
-
-        ConstPointer const_reference(ConstReference constReference) {
-            return (ConstPointer) &constReference;
-        }
-
-        SizeType max_size() const {
-            return (SizeType) (UINT_MAX / sizeof(T));
-        }
-    };
-}
 #endif //STL_ALLOCATOR_H
