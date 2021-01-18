@@ -44,11 +44,18 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Allocator.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="630">
-              <caret line="45" column="9" selection-start-line="45" selection-start-column="9" selection-end-line="45" selection-end-column="9" />
+            <state relative-caret-position="367">
+              <caret line="84" column="43" selection-start-line="84" selection-start-column="43" selection-end-line="101" selection-end-column="35" />
               <folding>
                 <element signature="e#89#122#0" expanded="true" />
                 <element signature="e#194#204#0" expanded="true" />
+                <element signature="e#202#833#1" />
+                <element signature="e#792#802#0" expanded="true" />
+                <element signature="e#965#1010#1" />
+                <element signature="e#1029#1130#0" />
+                <element signature="e#827#3563#0" />
+                <element signature="e#216#225#0" expanded="true" />
+                <element signature="e#2666#2675#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -150,12 +157,12 @@
       <option name="presentableId" value="Default" />
       <updated>1610872972530</updated>
       <workItem from="1610872973934" duration="2977000" />
-      <workItem from="1610876159881" duration="3863000" />
+      <workItem from="1610876159881" duration="9762000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="6840000" />
+    <option name="totallyTimeSpent" value="12739000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="840" y="23" width="840" height="1027" extended-state="0" />
@@ -238,11 +245,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Allocator.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="630">
-          <caret line="45" column="9" selection-start-line="45" selection-start-column="9" selection-end-line="45" selection-end-column="9" />
+        <state relative-caret-position="367">
+          <caret line="84" column="43" selection-start-line="84" selection-start-column="43" selection-end-line="101" selection-end-column="35" />
           <folding>
             <element signature="e#89#122#0" expanded="true" />
             <element signature="e#194#204#0" expanded="true" />
+            <element signature="e#202#833#1" />
+            <element signature="e#792#802#0" expanded="true" />
+            <element signature="e#965#1010#1" />
+            <element signature="e#1029#1130#0" />
+            <element signature="e#827#3563#0" />
+            <element signature="e#216#225#0" expanded="true" />
+            <element signature="e#2666#2675#0" expanded="true" />
           </folding>
         </state>
       </provider>
