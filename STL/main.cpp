@@ -61,6 +61,7 @@ int main() {
     std::cout<<StudentPointer3<<"\n";
     std::cout<<StudentPointer4<<"\n";
     std::cout<<StudentPointer5<<"\n";
+    StudentAllocator.deallocate(StudentPointer1, sizeof(Student));
 
     return 0;
 }
