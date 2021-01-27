@@ -235,7 +235,7 @@ inline void Advance(InputIterator &i, Distance n) {
 }
 //5 前进函数结束
 
-
+/*
 //
 /*
  * 重载
@@ -263,7 +263,9 @@ ValueType(const Iter &) {
 
 
 /*
- * 为不同类型迭代器设置重载*/
+ *
+ *
+ * 为不同类型迭代器设置重载
 
 //1 后插类型
 template<class Container>
@@ -356,9 +358,10 @@ public:
 };
 
 //3 插入类型结束
-//4 双向插入
+
+//4 反向迭代器
 template<class Iterator>
-class reverse_iterator {
+class ReverseIterator {
 protected:
     Iterator current;
 public:
@@ -374,14 +377,14 @@ public:
             reference;
 
     typedef Iterator iterator_type;
-    typedef reverse_iterator<Iterator> _Self;
+    typedef ReverseIterator<Iterator> _Self;
 
 public:
-    reverse_iterator() {}
+    ReverseIterator() {}
 
-    explicit reverse_iterator(iterator_type __x) : current(__x) {}
+    explicit ReverseIterator(iterator_type __x) : current(__x) {}
 
-    reverse_iterator(const _Self &__x) : current(__x.current) {}
+    ReverseIterator(const _Self &__x) : current(__x.current) {}
 
 
     iterator_type base() const { return current; }
@@ -437,28 +440,29 @@ public:
 };
 
 template<class _Iterator>
-inline bool operator==(const reverse_iterator<_Iterator> &__x,
-                       const reverse_iterator<_Iterator> &__y) {
+inline bool operator==(const ReverseIterator<_Iterator> &__x,
+                       const ReverseIterator<_Iterator> &__y) {
     return __x.base() == __y.base();
 }
 
 template<class _Iterator>
-inline bool operator<(const reverse_iterator<_Iterator> &__x,
-                      const reverse_iterator<_Iterator> &__y) {
+inline bool operator<(const ReverseIterator<_Iterator> &__x,
+                      const ReverseIterator<_Iterator> &__y) {
     return __y.base() < __x.base();
 }
 
 template<class _Iterator>
-inline typename reverse_iterator<_Iterator>::difference_type
-operator-(const reverse_iterator<_Iterator> &__x,
-          const reverse_iterator<_Iterator> &__y) {
+inline typename ReverseIterator<_Iterator>::difference_type
+operator-(const ReverseIterator<_Iterator> &__x,
+          const ReverseIterator<_Iterator> &__y) {
     return __y.base() - __x.base();
 }
 
 template<class _Iterator>
-inline reverse_iterator<_Iterator>
-operator+(typename reverse_iterator<_Iterator>::difference_type __n,
-          const reverse_iterator<_Iterator> &__x) {
-    return reverse_iterator<_Iterator>(__x.base() - __n);
+inline ReverseIterator<_Iterator>
+operator+(typename ReverseIterator<_Iterator>::difference_type __n,
+          const ReverseIterator<_Iterator> &__x) {
+    return ReverseIterator<_Iterator>(__x.base() - __n);
 }
-//4 双向插入结束
+//4 反向迭代器结束
+*/
