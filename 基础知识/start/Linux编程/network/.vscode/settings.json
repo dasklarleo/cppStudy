@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "memory_resource": "cpp",
+        "ctype.h": "c",
+        "unp.h": "c"
+    }
+}

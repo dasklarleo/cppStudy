@@ -1,0 +1,1 @@
+/Library/Developer/CommandLineTools/usr/bin/cc -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names  CMakeFiles/simplethread_poll.dir/thread_poll/threadpoolsimple.c.o  -o simplethread_poll  -L/usr/local/Cellar/libevent/2.1.11_1/lib 

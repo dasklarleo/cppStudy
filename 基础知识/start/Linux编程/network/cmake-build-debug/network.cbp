@@ -1,0 +1,411 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="network"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/Users/leosher/Documents/GitHub/c++/cppStudy/基础知识/start/Linux编程/network/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/leosher/Documents/GitHub/c++/cppStudy/基础知识/start/Linux编程/network/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/leosher/Documents/GitHub/c++/cppStudy/基础知识/start/Linux编程/network/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/leosher/Documents/GitHub/c++/cppStudy/基础知识/start/Linux编程/network/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/leosher/Documents/GitHub/c++/cppStudy/基础知识/start/Linux编程/network/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/Users/leosher/Documents/GitHub/c++/cppStudy/基础知识/start/Linux编程/network/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/leosher/Documents/GitHub/c++/cppStudy/基础知识/start/Linux编程/network/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/leosher/Documents/GitHub/c++/cppStudy/基础知识/start/Linux编程/network/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/leosher/Documents/GitHub/c++/cppStudy/基础知识/start/Linux编程/network/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/leosher/Documents/GitHub/c++/cppStudy/基础知识/start/Linux编程/network/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/Users/leosher/Documents/GitHub/c++/cppStudy/基础知识/start/Linux编程/network/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/leosher/Documents/GitHub/c++/cppStudy/基础知识/start/Linux编程/network/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/leosher/Documents/GitHub/c++/cppStudy/基础知识/start/Linux编程/network/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/leosher/Documents/GitHub/c++/cppStudy/基础知识/start/Linux编程/network/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/leosher/Documents/GitHub/c++/cppStudy/基础知识/start/Linux编程/network/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="LibeventServer">
+				<Option output="/Users/leosher/Documents/GitHub/c++/cppStudy/基础知识/start/Linux编程/network/cmake-build-debug/LibeventServer" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/leosher/Documents/GitHub/c++/cppStudy/基础知识/start/Linux编程/network/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/local/Cellar/libevent/2.1.11_1/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/11.0.3/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/leosher/Documents/GitHub/c++/cppStudy/基础知识/start/Linux编程/network/cmake-build-debug/Makefile&quot;  VERBOSE=1 LibeventServer"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/leosher/Documents/GitHub/c++/cppStudy/基础知识/start/Linux编程/network/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/leosher/Documents/GitHub/c++/cppStudy/基础知识/start/Linux编程/network/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/leosher/Documents/GitHub/c++/cppStudy/基础知识/start/Linux编程/network/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="LibeventServer/fast">
+				<Option output="/Users/leosher/Documents/GitHub/c++/cppStudy/基础知识/start/Linux编程/network/cmake-build-debug/LibeventServer" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/leosher/Documents/GitHub/c++/cppStudy/基础知识/start/Linux编程/network/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/local/Cellar/libevent/2.1.11_1/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/11.0.3/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/leosher/Documents/GitHub/c++/cppStudy/基础知识/start/Linux编程/network/cmake-build-debug/Makefile&quot;  VERBOSE=1 LibeventServer/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/leosher/Documents/GitHub/c++/cppStudy/基础知识/start/Linux编程/network/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/leosher/Documents/GitHub/c++/cppStudy/基础知识/start/Linux编程/network/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/leosher/Documents/GitHub/c++/cppStudy/基础知识/start/Linux编程/network/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="LocalClient">
+				<Option output="/Users/leosher/Documents/GitHub/c++/cppStudy/基础知识/start/Linux编程/network/cmake-build-debug/LocalClient" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/leosher/Documents/GitHub/c++/cppStudy/基础知识/start/Linux编程/network/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/local/Cellar/libevent/2.1.11_1/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/11.0.3/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/leosher/Documents/GitHub/c++/cppStudy/基础知识/start/Linux编程/network/cmake-build-debug/Makefile&quot;  VERBOSE=1 LocalClient"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/leosher/Documents/GitHub/c++/cppStudy/基础知识/start/Linux编程/network/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/leosher/Documents/GitHub/c++/cppStudy/基础知识/start/Linux编程/network/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/leosher/Documents/GitHub/c++/cppStudy/基础知识/start/Linux编程/network/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="LocalClient/fast">
+				<Option output="/Users/leosher/Documents/GitHub/c++/cppStudy/基础知识/start/Linux编程/network/cmake-build-debug/LocalClient" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/leosher/Documents/GitHub/c++/cppStudy/基础知识/start/Linux编程/network/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/local/Cellar/libevent/2.1.11_1/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/11.0.3/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/leosher/Documents/GitHub/c++/cppStudy/基础知识/start/Linux编程/network/cmake-build-debug/Makefile&quot;  VERBOSE=1 LocalClient/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/leosher/Documents/GitHub/c++/cppStudy/基础知识/start/Linux编程/network/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/leosher/Documents/GitHub/c++/cppStudy/基础知识/start/Linux编程/network/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/leosher/Documents/GitHub/c++/cppStudy/基础知识/start/Linux编程/network/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="LocalServer">
+				<Option output="/Users/leosher/Documents/GitHub/c++/cppStudy/基础知识/start/Linux编程/network/cmake-build-debug/LocalServer" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/leosher/Documents/GitHub/c++/cppStudy/基础知识/start/Linux编程/network/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/local/Cellar/libevent/2.1.11_1/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/11.0.3/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/leosher/Documents/GitHub/c++/cppStudy/基础知识/start/Linux编程/network/cmake-build-debug/Makefile&quot;  VERBOSE=1 LocalServer"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/leosher/Documents/GitHub/c++/cppStudy/基础知识/start/Linux编程/network/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/leosher/Documents/GitHub/c++/cppStudy/基础知识/start/Linux编程/network/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/leosher/Documents/GitHub/c++/cppStudy/基础知识/start/Linux编程/network/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="LocalServer/fast">
+				<Option output="/Users/leosher/Documents/GitHub/c++/cppStudy/基础知识/start/Linux编程/network/cmake-build-debug/LocalServer" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/leosher/Documents/GitHub/c++/cppStudy/基础知识/start/Linux编程/network/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/local/Cellar/libevent/2.1.11_1/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/11.0.3/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/leosher/Documents/GitHub/c++/cppStudy/基础知识/start/Linux编程/network/cmake-build-debug/Makefile&quot;  VERBOSE=1 LocalServer/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/leosher/Documents/GitHub/c++/cppStudy/基础知识/start/Linux编程/network/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/leosher/Documents/GitHub/c++/cppStudy/基础知识/start/Linux编程/network/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/leosher/Documents/GitHub/c++/cppStudy/基础知识/start/Linux编程/network/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="UDPClient">
+				<Option output="/Users/leosher/Documents/GitHub/c++/cppStudy/基础知识/start/Linux编程/network/cmake-build-debug/UDPClient" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/leosher/Documents/GitHub/c++/cppStudy/基础知识/start/Linux编程/network/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/local/Cellar/libevent/2.1.11_1/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/11.0.3/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/leosher/Documents/GitHub/c++/cppStudy/基础知识/start/Linux编程/network/cmake-build-debug/Makefile&quot;  VERBOSE=1 UDPClient"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/leosher/Documents/GitHub/c++/cppStudy/基础知识/start/Linux编程/network/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/leosher/Documents/GitHub/c++/cppStudy/基础知识/start/Linux编程/network/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/leosher/Documents/GitHub/c++/cppStudy/基础知识/start/Linux编程/network/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="UDPClient/fast">
+				<Option output="/Users/leosher/Documents/GitHub/c++/cppStudy/基础知识/start/Linux编程/network/cmake-build-debug/UDPClient" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/leosher/Documents/GitHub/c++/cppStudy/基础知识/start/Linux编程/network/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/local/Cellar/libevent/2.1.11_1/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/11.0.3/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/leosher/Documents/GitHub/c++/cppStudy/基础知识/start/Linux编程/network/cmake-build-debug/Makefile&quot;  VERBOSE=1 UDPClient/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/leosher/Documents/GitHub/c++/cppStudy/基础知识/start/Linux编程/network/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/leosher/Documents/GitHub/c++/cppStudy/基础知识/start/Linux编程/network/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/leosher/Documents/GitHub/c++/cppStudy/基础知识/start/Linux编程/network/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="UDPServer">
+				<Option output="/Users/leosher/Documents/GitHub/c++/cppStudy/基础知识/start/Linux编程/network/cmake-build-debug/UDPServer" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/leosher/Documents/GitHub/c++/cppStudy/基础知识/start/Linux编程/network/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/local/Cellar/libevent/2.1.11_1/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/11.0.3/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/leosher/Documents/GitHub/c++/cppStudy/基础知识/start/Linux编程/network/cmake-build-debug/Makefile&quot;  VERBOSE=1 UDPServer"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/leosher/Documents/GitHub/c++/cppStudy/基础知识/start/Linux编程/network/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/leosher/Documents/GitHub/c++/cppStudy/基础知识/start/Linux编程/network/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/leosher/Documents/GitHub/c++/cppStudy/基础知识/start/Linux编程/network/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="UDPServer/fast">
+				<Option output="/Users/leosher/Documents/GitHub/c++/cppStudy/基础知识/start/Linux编程/network/cmake-build-debug/UDPServer" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/leosher/Documents/GitHub/c++/cppStudy/基础知识/start/Linux编程/network/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/local/Cellar/libevent/2.1.11_1/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/11.0.3/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/leosher/Documents/GitHub/c++/cppStudy/基础知识/start/Linux编程/network/cmake-build-debug/Makefile&quot;  VERBOSE=1 UDPServer/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/leosher/Documents/GitHub/c++/cppStudy/基础知识/start/Linux编程/network/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/leosher/Documents/GitHub/c++/cppStudy/基础知识/start/Linux编程/network/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/leosher/Documents/GitHub/c++/cppStudy/基础知识/start/Linux编程/network/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="complexThreadPool">
+				<Option output="/Users/leosher/Documents/GitHub/c++/cppStudy/基础知识/start/Linux编程/network/cmake-build-debug/complexThreadPool" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/leosher/Documents/GitHub/c++/cppStudy/基础知识/start/Linux编程/network/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/local/Cellar/libevent/2.1.11_1/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/11.0.3/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/leosher/Documents/GitHub/c++/cppStudy/基础知识/start/Linux编程/network/cmake-build-debug/Makefile&quot;  VERBOSE=1 complexThreadPool"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/leosher/Documents/GitHub/c++/cppStudy/基础知识/start/Linux编程/network/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/leosher/Documents/GitHub/c++/cppStudy/基础知识/start/Linux编程/network/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/leosher/Documents/GitHub/c++/cppStudy/基础知识/start/Linux编程/network/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="complexThreadPool/fast">
+				<Option output="/Users/leosher/Documents/GitHub/c++/cppStudy/基础知识/start/Linux编程/network/cmake-build-debug/complexThreadPool" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/leosher/Documents/GitHub/c++/cppStudy/基础知识/start/Linux编程/network/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/local/Cellar/libevent/2.1.11_1/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/11.0.3/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/leosher/Documents/GitHub/c++/cppStudy/基础知识/start/Linux编程/network/cmake-build-debug/Makefile&quot;  VERBOSE=1 complexThreadPool/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/leosher/Documents/GitHub/c++/cppStudy/基础知识/start/Linux编程/network/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/leosher/Documents/GitHub/c++/cppStudy/基础知识/start/Linux编程/network/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/leosher/Documents/GitHub/c++/cppStudy/基础知识/start/Linux编程/network/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="simplethread_poll">
+				<Option output="/Users/leosher/Documents/GitHub/c++/cppStudy/基础知识/start/Linux编程/network/cmake-build-debug/simplethread_poll" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/leosher/Documents/GitHub/c++/cppStudy/基础知识/start/Linux编程/network/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/local/Cellar/libevent/2.1.11_1/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/11.0.3/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/leosher/Documents/GitHub/c++/cppStudy/基础知识/start/Linux编程/network/cmake-build-debug/Makefile&quot;  VERBOSE=1 simplethread_poll"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/leosher/Documents/GitHub/c++/cppStudy/基础知识/start/Linux编程/network/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/leosher/Documents/GitHub/c++/cppStudy/基础知识/start/Linux编程/network/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/leosher/Documents/GitHub/c++/cppStudy/基础知识/start/Linux编程/network/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="simplethread_poll/fast">
+				<Option output="/Users/leosher/Documents/GitHub/c++/cppStudy/基础知识/start/Linux编程/network/cmake-build-debug/simplethread_poll" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/leosher/Documents/GitHub/c++/cppStudy/基础知识/start/Linux编程/network/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/local/Cellar/libevent/2.1.11_1/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/11.0.3/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/leosher/Documents/GitHub/c++/cppStudy/基础知识/start/Linux编程/network/cmake-build-debug/Makefile&quot;  VERBOSE=1 simplethread_poll/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/leosher/Documents/GitHub/c++/cppStudy/基础知识/start/Linux编程/network/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/leosher/Documents/GitHub/c++/cppStudy/基础知识/start/Linux编程/network/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/leosher/Documents/GitHub/c++/cppStudy/基础知识/start/Linux编程/network/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="epoll">
+				<Option output="/Users/leosher/Documents/GitHub/c++/cppStudy/基础知识/start/Linux编程/network/cmake-build-debug/epoll" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/leosher/Documents/GitHub/c++/cppStudy/基础知识/start/Linux编程/network/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/local/Cellar/libevent/2.1.11_1/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/11.0.3/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/leosher/Documents/GitHub/c++/cppStudy/基础知识/start/Linux编程/network/cmake-build-debug/Makefile&quot;  VERBOSE=1 epoll"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/leosher/Documents/GitHub/c++/cppStudy/基础知识/start/Linux编程/network/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/leosher/Documents/GitHub/c++/cppStudy/基础知识/start/Linux编程/network/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/leosher/Documents/GitHub/c++/cppStudy/基础知识/start/Linux编程/network/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="epoll/fast">
+				<Option output="/Users/leosher/Documents/GitHub/c++/cppStudy/基础知识/start/Linux编程/network/cmake-build-debug/epoll" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/leosher/Documents/GitHub/c++/cppStudy/基础知识/start/Linux编程/network/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/local/Cellar/libevent/2.1.11_1/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/11.0.3/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/leosher/Documents/GitHub/c++/cppStudy/基础知识/start/Linux编程/network/cmake-build-debug/Makefile&quot;  VERBOSE=1 epoll/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/leosher/Documents/GitHub/c++/cppStudy/基础知识/start/Linux编程/network/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/leosher/Documents/GitHub/c++/cppStudy/基础知识/start/Linux编程/network/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/leosher/Documents/GitHub/c++/cppStudy/基础知识/start/Linux编程/network/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/Users/leosher/Documents/GitHub/c++/cppStudy/基础知识/start/Linux编程/network/LibEvent/server.c">
+			<Option target="LibeventServer"/>
+		</Unit>
+		<Unit filename="/Users/leosher/Documents/GitHub/c++/cppStudy/基础知识/start/Linux编程/network/Local_Net/cleint.c">
+			<Option target="LocalClient"/>
+		</Unit>
+		<Unit filename="/Users/leosher/Documents/GitHub/c++/cppStudy/基础知识/start/Linux编程/network/Local_Net/server.c">
+			<Option target="LocalServer"/>
+		</Unit>
+		<Unit filename="/Users/leosher/Documents/GitHub/c++/cppStudy/基础知识/start/Linux编程/network/UDP/client.c">
+			<Option target="UDPClient"/>
+		</Unit>
+		<Unit filename="/Users/leosher/Documents/GitHub/c++/cppStudy/基础知识/start/Linux编程/network/UDP/server.c">
+			<Option target="UDPServer"/>
+		</Unit>
+		<Unit filename="/Users/leosher/Documents/GitHub/c++/cppStudy/基础知识/start/Linux编程/network/epoll/epoll.c">
+			<Option target="epoll"/>
+		</Unit>
+		<Unit filename="/Users/leosher/Documents/GitHub/c++/cppStudy/基础知识/start/Linux编程/network/thread_poll/threadpool.c">
+			<Option target="complexThreadPool"/>
+		</Unit>
+		<Unit filename="/Users/leosher/Documents/GitHub/c++/cppStudy/基础知识/start/Linux编程/network/thread_poll/threadpool.h">
+			<Option target="complexThreadPool"/>
+		</Unit>
+		<Unit filename="/Users/leosher/Documents/GitHub/c++/cppStudy/基础知识/start/Linux编程/network/thread_poll/threadpoolsimple.c">
+			<Option target="simplethread_poll"/>
+		</Unit>
+		<Unit filename="/Users/leosher/Documents/GitHub/c++/cppStudy/基础知识/start/Linux编程/network/thread_poll/threadpoolsimple.h">
+			<Option target="simplethread_poll"/>
+		</Unit>
+		<Unit filename="/Users/leosher/Documents/GitHub/c++/cppStudy/基础知识/start/Linux编程/network/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

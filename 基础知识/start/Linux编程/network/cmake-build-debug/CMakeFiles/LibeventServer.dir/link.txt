@@ -1,0 +1,1 @@
+/Library/Developer/CommandLineTools/usr/bin/cc -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names  CMakeFiles/LibeventServer.dir/LibEvent/server.c.o  -o LibeventServer  -L/usr/local/Cellar/libevent/2.1.11_1/lib -Wl,-rpath,/usr/local/Cellar/libevent/2.1.11_1/lib -lunp -levent 

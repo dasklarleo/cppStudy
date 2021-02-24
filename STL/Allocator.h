@@ -149,12 +149,12 @@ public:
         } else {
             Obj **MyFreeList = SFreeList + SFreeListIndex(n);//确定空闲链表
             Obj *result = *MyFreeList;
-            if (result == 0){//没有空闲的了,尝试再要点内存
+            if (result == 0) {//没有空闲的了,尝试再要点内存
                 void *r = SRefill(RoundUp(n));
                 return r;
             }
             result = result->MemFreeListLink;
-            *MyFreeList=result;
+            *MyFreeList = result;
             return result;
         }
     }
@@ -246,6 +246,27 @@ public:
         pointer->~T();
     }
 };
+
+template<class T, class Allocater>
+class simple_alloc {
+public:
+    static T *allocate(size_t n) {
+        return n != 0 ? static_cast<T *>(Alloc::Allocate(n * sizeof(T))) : 0;
+    }
+
+    static T *allocate(void) {
+        return (T *) Allocater::allocate(sizeof(T));
+    }
+
+    static void deallocate(T *p, size_t n) {
+        if (0 != n) Allocater::deallocate(p, n * sizeof(T));
+    }
+
+    static void deallocate(T *p) {
+        Allocater::deallocate(p, sizeof(T));
+    }
+};
+
 
 
 #endif //STL_ALLOCATOR_H

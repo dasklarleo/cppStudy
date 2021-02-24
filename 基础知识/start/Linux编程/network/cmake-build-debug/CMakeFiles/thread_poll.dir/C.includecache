@@ -1,0 +1,26 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/leosher/Documents/GitHub/c++/cppStudy/基础知识/start/Linux编程/network/thread_poll/threadpoolsimple.c
+threadpoolsimple.h
+/Users/leosher/Documents/GitHub/c++/cppStudy/基础知识/start/Linux编程/network/thread_poll/threadpoolsimple.h
+
+/Users/leosher/Documents/GitHub/c++/cppStudy/基础知识/start/Linux编程/network/thread_poll/threadpoolsimple.h
+stdio.h
+-
+stdlib.h
+-
+string.h
+-
+sys/types.h
+-
+unistd.h
+-
+pthread.h
+-
+

@@ -115,28 +115,42 @@ struct IteratorTraits<const T *> {
 
 /*
  * 为五种迭代器单独设置函数
+ * 和迭代器相关的函数以便回答algorithms的问题
  * */
 //1 返回类别函数
 template<class T, class Distance>
 inline InputIteratorTag
-ItearotCategory(const InputIterator<T, Distance> &) { return InputIteratorTag(); }
+IteratorCategory(const InputIterator<T, Distance> &) { return InputIteratorTag(); }
 
-inline OutputIteratorTag iterator_category(const OutputIterator &) { return OutputIteratorTag(); }
+inline OutputIteratorTag IteratorCategory(const OutputIterator &) { return OutputIteratorTag(); }
 
 template<class T, class Distance>
 inline ForwardIteratorTag
-ItearotCategory(const ForwarIterator <T, Distance> &) { return ForwardIteratorTag(); }
+IteratorCategory(const ForwardIterator<T, Distance> &) { return ForwardIteratorTag(); }
 
 template<class T, class Distance>
 inline BidirectionalIteratorTag
-ItearotCategory(const BidirectionalIterator<T, Distance> &) { return BidirectionalIteratorTag(); }
+IteratorCategory(const BidirectionalIterator<T, Distance> &) { return BidirectionalIteratorTag(); }
 
 template<class T, class Distance>
 inline RandomAccessIteratorTag
-ItearotCategory(const RandomAccessIterator<T, Distance> &) { return RandomAccessIteratorTag(); }
+IteratorCategory(const RandomAccessIterator<T, Distance> &) { return RandomAccessIteratorTag(); }
 
 template<class T>
-inline RandomAccessIteratorTag ItearotCategory(const T *) { return RandomAccessIteratorTag(); }
+inline RandomAccessIteratorTag IteratorCategory(const T *) { return RandomAccessIteratorTag(); }
+
+template<class Iter>
+inline typename IteratorTraits<Iter>::iterator_category
+IteratorCategoryInner(const Iter &) {
+    typedef typename IteratorTraits<Iter>::iterator_category Category;
+    return Category();
+}
+
+template<class Iter>
+inline typename IteratorTraits<Iter>::iterator_category
+IteratorCategory(const Iter &i) { return IteratorCategoryInner(i); }
+
+
 //1 返回类别函数结束
 
 //2 返回值的类型
@@ -144,7 +158,7 @@ template<class T, class Distance>
 inline T *ValueType(const InputIterator<T, Distance> &) { return (T *) (0); }
 
 template<class T, class Distance>
-inline T *ValueType(const ForwarIterator <T, Distance> &) { return (T *) (0); }
+inline T *ValueType(const ForwardIterator<T, Distance> &) { return (T *) (0); }
 
 template<class T, class Distance>
 inline T *ValueType(const BidirectionalIterator<T, Distance> &) { return (T *) (0); }
@@ -164,7 +178,7 @@ inline Distance *DistanceType(const InputIterator<T, Distance> &) {
 }
 
 template<class T, class Distance>
-inline Distance *DistanceType(const ForwarIterator <T, Distance> &) {
+inline Distance *DistanceType(const ForwardIterator<T, Distance> &) {
     return (Distance *) (0);
 }
 
@@ -235,23 +249,19 @@ inline void Advance(InputIterator &i, Distance n) {
 }
 //5 前进函数结束
 
-/*
-//
-/*
- * 重载
- */
+//6 difference type开始
 template<class Iter>
-inline typename IteratorTraits<Iter>::iterator_category
-IteratorCategory(const Iter &) {
-    typedef typename IteratorTraits<Iter>::iterator_category Category;
-    return Category();
+inline typename IteratorTraits<Iter>::difference_type *
+DistanceTypeInner(const Iter &) {
+    return static_cast<typename IteratorTraits<Iter>::difference_type *>(0);
 }
 
 template<class Iter>
 inline typename IteratorTraits<Iter>::difference_type *
-DistanceType(const Iter &) {
-    return static_cast<typename IteratorTraits<Iter>::difference_type *>(0);
-}
+DistanceType(const Iter &i) { return DistanceInner(i); }
+//6 difference type结束
+
+
 
 template<class Iter>
 inline typename IteratorTraits<Iter>::value_type *
@@ -259,210 +269,47 @@ ValueType(const Iter &) {
     return static_cast<typename IteratorTraits<Iter>::value_type *>(0);
 }
 
-
-
-
-/*
- *
- *
- * 为不同类型迭代器设置重载
-
-//1 后插类型
-template<class Container>
-class BackInsertIterator {
+template <class _BidirectionalIterator, class _Tp, class _Reference = _Tp&,
+        class _Distance = ptrdiff_t>
+class reverse_bidirectional_iterator {
+    typedef reverse_bidirectional_iterator<_BidirectionalIterator, _Tp,
+            _Reference, _Distance>  _Self;
 protected:
-    Container *container;
+    _BidirectionalIterator current;
 public:
-    typedef Container container_type;
-    typedef OutputIteratorTag iterator_category;
-    typedef void value_type;
-    typedef void difference_type;
-    typedef void pointer;
-    typedef void reference;
+    typedef BidirectionalIteratorTag iterator_category;
+    typedef _Tp                        value_type;
+    typedef _Distance                  difference_type;
+    typedef _Tp*                       pointer;
+    typedef _Reference                 reference;
 
-    explicit BackInsertIterator(Container &__x) : container(&__x) {}
-
-    BackInsertIterator<Container> &
-    operator=(const typename Container::value_type &__value) {
-        container->push_back(__value);
-        return *this;
-    }
-
-    BackInsertIterator<Container> &operator*() { return *this; }
-
-    BackInsertIterator<Container> &operator++() { return *this; }
-
-    BackInsertIterator<Container> &operator++(int) { return *this; }
-};
-//1 后插类型结束
-
-//2 前插类型
-template<class Container>
-class FrontInsertIterator {
-protected:
-    Container *container;
-public:
-    typedef Container container_type;
-    typedef OutputIteratorTag iterator_category;
-    typedef void value_type;
-    typedef void difference_type;
-    typedef void pointer;
-    typedef void reference;
-
-    explicit FrontInsertIterator(Container &__x) : container(&__x) {}
-
-    FrontInsertIterator<Container> &
-    operator=(const typename Container::value_type &__value) {
-        container->push_front(__value);
-        return *this;
-    }
-
-    FrontInsertIterator<Container> &operator*() { return *this; }
-
-    FrontInsertIterator<Container> &operator++() { return *this; }
-
-    FrontInsertIterator<Container> &operator++(int) { return *this; }
-};
-
-//2 前插类型结束
-
-//3 插入类型
-template<class Container>
-class InsertIterator {
-protected:
-    Container *container;
-    typename Container::iterator iter;
-public:
-    typedef Container container_type;
-    typedef OutputIteratorTag iterator_category;
-    typedef void value_type;
-    typedef void difference_type;
-    typedef void pointer;
-    typedef void reference;
-
-    InsertIterator(Container &__x, typename Container::iterator __i)
-            : container(&__x), iter(__i) {}
-
-    InsertIterator<Container> &
-    operator=(const typename Container::value_type &__value) {
-        iter = container->insert(iter, __value);
-        ++iter;
-        return *this;
-    }
-
-    InsertIterator<Container> &operator*() { return *this; }
-
-    InsertIterator<Container> &operator++() { return *this; }
-
-    InsertIterator<Container> &operator++(int) { return *this; }
-};
-
-//3 插入类型结束
-
-//4 反向迭代器
-template<class Iterator>
-class ReverseIterator {
-protected:
-    Iterator current;
-public:
-    typedef typename IteratorTraits<Iterator>::iterator_category
-            iterator_category;
-    typedef typename IteratorTraits<Iterator>::value_type
-            value_type;
-    typedef typename IteratorTraits<Iterator>::difference_type
-            difference_type;
-    typedef typename IteratorTraits<Iterator>::pointer
-            pointer;
-    typedef typename IteratorTraits<Iterator>::reference
-            reference;
-
-    typedef Iterator iterator_type;
-    typedef ReverseIterator<Iterator> _Self;
-
-public:
-    ReverseIterator() {}
-
-    explicit ReverseIterator(iterator_type __x) : current(__x) {}
-
-    ReverseIterator(const _Self &__x) : current(__x.current) {}
-
-
-    iterator_type base() const { return current; }
-
-    reference operator*() const {
-        Iterator __tmp = current;
+    reverse_bidirectional_iterator() {}
+    explicit reverse_bidirectional_iterator(_BidirectionalIterator __x)
+            : current(__x) {}
+    _BidirectionalIterator base() const { return current; }
+    _Reference operator*() const {
+        _BidirectionalIterator __tmp = current;
         return *--__tmp;
     }
-
+#ifndef __SGI_STL_NO_ARROW_OPERATOR
     pointer operator->() const { return &(operator*()); }
-
-    _Self &operator++() {
+#endif /* __SGI_STL_NO_ARROW_OPERATOR */
+    _Self& operator++() {
         --current;
         return *this;
     }
-
     _Self operator++(int) {
         _Self __tmp = *this;
         --current;
         return __tmp;
     }
-
-    _Self &operator--() {
+    _Self& operator--() {
         ++current;
         return *this;
     }
-
     _Self operator--(int) {
         _Self __tmp = *this;
         ++current;
         return __tmp;
     }
-
-    _Self operator+(difference_type __n) const {
-        return _Self(current - __n);
-    }
-
-    _Self &operator+=(difference_type __n) {
-        current -= __n;
-        return *this;
-    }
-
-    _Self operator-(difference_type __n) const {
-        return _Self(current + __n);
-    }
-
-    _Self &operator-=(difference_type __n) {
-        current += __n;
-        return *this;
-    }
-
-    reference operator[](difference_type __n) const { return *(*this + __n); }
 };
-
-template<class _Iterator>
-inline bool operator==(const ReverseIterator<_Iterator> &__x,
-                       const ReverseIterator<_Iterator> &__y) {
-    return __x.base() == __y.base();
-}
-
-template<class _Iterator>
-inline bool operator<(const ReverseIterator<_Iterator> &__x,
-                      const ReverseIterator<_Iterator> &__y) {
-    return __y.base() < __x.base();
-}
-
-template<class _Iterator>
-inline typename ReverseIterator<_Iterator>::difference_type
-operator-(const ReverseIterator<_Iterator> &__x,
-          const ReverseIterator<_Iterator> &__y) {
-    return __y.base() - __x.base();
-}
-
-template<class _Iterator>
-inline ReverseIterator<_Iterator>
-operator+(typename ReverseIterator<_Iterator>::difference_type __n,
-          const ReverseIterator<_Iterator> &__x) {
-    return ReverseIterator<_Iterator>(__x.base() - __n);
-}
-//4 反向迭代器结束
-*/

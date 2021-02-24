@@ -1,0 +1,14 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/leosher/Documents/GitHub/c++/cppStudy/基础知识/start/Linux编程/network/Local_Net/server.c
+unp.h
+-
+ctype.h
+-
+

@@ -83,6 +83,9 @@
 		<Unit filename="/Users/leosher/Documents/GitHub/c++/cppStudy/STL/Allocator.h">
 			<Option target="STL"/>
 		</Unit>
+		<Unit filename="/Users/leosher/Documents/GitHub/c++/cppStudy/STL/List.h">
+			<Option target="STL"/>
+		</Unit>
 		<Unit filename="/Users/leosher/Documents/GitHub/c++/cppStudy/STL/iterator.h">
 			<Option target="STL"/>
 		</Unit>
